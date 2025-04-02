@@ -19,14 +19,17 @@ main {
 .button {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #007bff;
+    background-color: #28a745;
     color: white;
     text-decoration: none;
     border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
 }
 
 .button:hover {
-    background-color: #0056b3;
+    background-color: #218838;
 }
 
 footer {

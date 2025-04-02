@@ -1,38 +1,130 @@
-CSS
+/* Algemene Stijlen */
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
-    text-align: center;
+    background-color: #111; /* Donkere achtergrond voor contrast */
+    color: #eee; /* Lichtgekleurde tekst */
+    line-height: 1.6;
+    overflow-x: hidden; /* Verhindert horizontale scrollbalken */
 }
 
-header {
-    background: #2c3e50;
-    color: white;
-    padding: 20px;
+/* Achtergrond Overlay (voor visuele effecten) */
+
+.background-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(30, 0, 60, 0.8), rgba(0, 60, 30, 0.8)); /* Paars/Groen verloop */
+    opacity: 0.7;
+    z-index: -1;
 }
+
+/* Header */
+
+.header {
+    background-color: rgba(0, 0, 0, 0.5); /* Iets transparant */
+    padding: 40px 20px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.header-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.header-title {
+    font-size: 2.5em;
+    color: #f0f; /* Felroze */
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.header-text {
+    font-size: 1.1em;
+    color: #99ff99; /* Lichtgroen */
+    margin-bottom: 30px;
+}
+
+/* Countdown Timer */
+
+#countdown {
+    font-size: 2em;
+    color: #ffff66; /* Felgeel */
+    margin: 30px 0;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Ticket Button */
 
 .ticket-button {
     display: inline-block;
-    margin-top: 10px;
-    padding: 10px 20px;
-    background: #e74c3c;
-    color: white;
+    padding: 15px 30px;
+    background-color: #00ffff; /* Cyaan */
+    color: #111;
     text-decoration: none;
-    border-radius: 5px;
-}
-
-#countdown {
-    font-size: 1.5em;
-    margin: 20px 0;
-}
-
-section {
-    margin: 20px;
-    padding: 20px;
-    background: white;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-size: 1.2em;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.ticket-button:hover {
+    background-color: #cc00cc; /* Magenta */
+    color: #fff;
+}
+
+/* Main Content */
+
+.main-content {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+/* Sections */
+
+.section {
+    background-color: rgba(255, 255, 255, 0.05); /* Licht transparant wit */
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    margin-bottom: 30px;
+}
+
+.section-title {
+    font-size: 2em;
+    color: #ff66cc; /* Roze */
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.section-text {
+    font-size: 1.1em;
+    color: #eee;
+}
+
+/* Foto Galerij */
+
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.photo-grid img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.photo-grid img:hover {
+    transform: scale(1.05);
 }

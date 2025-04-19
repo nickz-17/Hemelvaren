@@ -87,9 +87,27 @@ body {
     padding: 20px;
 }
 
-/* Sections */
+/* Line-up Container */
 
-.section {
+.line-up-container {
+    display: flex; /* Belangrijk: maakt van de container een flexbox */
+    gap: 20px; /* Optioneel: ruimte tussen de line-up secties */
+    margin-bottom: 30px; /* Behoud de marge onder de line-up secties */
+}
+
+/* Line-up Secties */
+
+.line-up-section {
+    flex: 1; /* Zorgt ervoor dat beide secties gelijke ruimte innemen */
+    background-color: rgba(255, 255, 255, 0.05); /* Behoud de achtergrondkleur */
+    border-radius: 12px; /* Behoud de afgeronde hoeken */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Behoud de schaduw */
+    padding: 30px; /* Behoud de padding */
+}
+
+/* Sections (algemeen - let op de aanpassing!) */
+
+.section:not(.line-up-section) { /* Style alle secties BEHALVE de line-up secties */
     background-color: rgba(255, 255, 255, 0.05); /* Licht transparant wit */
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
@@ -125,6 +143,4 @@ body {
     transition: transform 0.3s ease;
 }
 
-.photo-grid img:hover {
-    transform: scale(1.05);
-}
+.photo-grid img

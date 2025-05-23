@@ -56,7 +56,8 @@ body {
 }
 
 .header-title {
-    font-size: 2.5em;
+    font-size: 2.3em; /* Iets kleiner gemaakt om beter te passen */
+    white-space: nowrap; /* Dwingt de tekst op één regel te blijven */
     color: #f0f;
     margin-bottom: 20px;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
@@ -133,8 +134,7 @@ body {
     flex: 1;
 }
 
-
-/* === FINALE, CORRECTE FOTO GALERIJ === */
+/* Foto Galerij */
 .photo-grid {
     display: flex;
     flex-wrap: wrap;
@@ -143,7 +143,7 @@ body {
 
 .photo-item {
     flex: 1 1 250px;
-    height: 200px;     /* VASTE HOOGTE OP DE CONTAINER */
+    height: 200px;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
@@ -157,15 +157,14 @@ body {
 .photo-item img {
     display: block;
     width: 100%;
-    height: 100%;      /* AFBEELDING VULT DE HOOGTE VAN DE CONTAINER */
-    object-fit: cover; /* Zorgt voor correct bijsnijden ipv pletten */
+    height: 100%;
+    object-fit: cover;
 }
-
 
 /* RESPONSIVITEIT */
 @media (max-width: 768px) {
     .header-title {
-        font-size: 2em;
+        font-size: 1.7em; /* Verkleind voor mobiele schermen */
     }
     .header-text {
         font-size: 1em;

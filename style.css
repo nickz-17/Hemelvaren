@@ -69,7 +69,7 @@ body {
 .header-text {
     font-size: 1.1em;
     /* OUDE KLEUREN: color: #99ff99; (groen) of color: #FF9900; (oranje) */
-    color: #00FFFF; /* NIEUWE KLEUR: Helder cyaan/turkoois, gelijk aan de ticket-button */
+    color: #00FFFF; /* Helder cyaan/turkoois, gelijk aan de ticket-button */
     margin-bottom: 30px;
 }
 
@@ -87,8 +87,9 @@ body {
 .ticket-button {
     display: inline-block;
     padding: 15px 30px;
-    background-color: #00ffff; /* Cyaan */
-    color: #111;
+    /* OUDE KLEUR: background-color: #00ffff; */
+    background-color: #FF007F; /* NIEUWE KLEUR: Levendig roze/magenta */
+    color: #fff; /* Witte tekst op de knop voor contrast */
     text-decoration: none;
     border-radius: 8px;
     font-size: 1.2em;
@@ -98,7 +99,8 @@ body {
 }
 
 .ticket-button:hover {
-    background-color: #cc00cc; /* Magenta */
+    /* OUDE HOVER KLEUR: background-color: #cc00cc; */
+    background-color: #CC0066; /* Iets donkerder roze/magenta bij hover */
     color: #fff;
 }
 

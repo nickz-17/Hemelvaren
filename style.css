@@ -26,13 +26,11 @@ body {
 /* Header */
 
 .header {
-    /* Bestaande stijlen */
     background-color: rgba(0, 0, 0, 0.5); /* Iets transparant */
     padding: 40px 20px;
     text-align: center;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 
-    /* NIEUWE STIJLEN VOOR ACHTERGRONDAFBEELDING */
     background-image: url('sun2.jpg'); /* Pad naar je afbeelding */
     background-size: cover; /* Zorgt ervoor dat de afbeelding de hele header vult */
     background-position: center; /* Centreert de afbeelding */
@@ -42,7 +40,6 @@ body {
 }
 
 /* Optioneel: Overlay over de header afbeelding voor betere leesbaarheid */
-/* Dit zorgt ervoor dat de tekst beter leesbaar blijft over de afbeelding */
 .header::before {
     content: '';
     position: absolute;
@@ -62,7 +59,6 @@ body {
     z-index: 2; /* Hogere z-index dan de ::before pseudo-element */
 }
 
-
 .header-title {
     font-size: 2.5em;
     color: #f0f; /* Felroze */
@@ -72,6 +68,7 @@ body {
 
 .header-text {
     font-size: 1.1em;
+    /* OUDE KLEUR: color: #99ff99; */
     color: #FF9900; /* NIEUWE KLEUR: Feloranje voor betere zichtbaarheid */
     margin-bottom: 30px;
 }
@@ -116,25 +113,25 @@ body {
 /* Line-up Container */
 
 .line-up-container {
-    display: flex; /* Belangrijk: maakt van de container een flexbox */
-    gap: 20px; /* Optioneel: ruimte tussen de line-up secties */
-    margin-bottom: 30px; /* Behoud de marge onder de line-up secties */
+    display: flex;
+    gap: 20px;
+    margin-bottom: 30px;
 }
 
 /* Line-up Secties */
 
 .line-up-section {
-    flex: 1; /* Zorgt ervoor dat beide secties gelijke ruimte innemen */
-    background-color: rgba(255, 255, 255, 0.05); /* Behoud de achtergrondkleur */
-    border-radius: 12px; /* Behoud de afgeronde hoeken */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Behoud de schaduw */
-    padding: 30px; /* Behoud de padding */
+    flex: 1;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    padding: 30px;
 }
 
-/* Sections (algemeen - let op de aanpassing!) */
+/* Sections (algemeen) */
 
-.section:not(.line-up-section) { /* Style alle secties BEHALVE de line-up secties */
-    background-color: rgba(255, 255, 255, 0.05); /* Licht transparant wit */
+.section:not(.line-up-section) {
+    background-color: rgba(255, 255, 255, 0.05);
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     padding: 30px;
@@ -177,15 +174,15 @@ body {
 
 @media (max-width: 768px) {
     .header-title {
-        font-size: 2em; /* Kleinere titel op mobiel */
+        font-size: 2em;
     }
 
     .header-text {
-        font-size: 1em; /* Kleinere tekst op mobiel */
+        font-size: 1em;
     }
 
     #countdown {
-        font-size: 1.5em; /* Kleinere countdown op mobiel */
+        font-size: 1.5em;
     }
 
     .ticket-button {
@@ -194,7 +191,7 @@ body {
     }
 
     .line-up-container {
-        flex-direction: column; /* Stapel de line-up secties op elkaar op mobiel */
+        flex-direction: column;
     }
 
     .section-title {

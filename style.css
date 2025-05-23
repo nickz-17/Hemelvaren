@@ -153,15 +153,15 @@ body {
 
 .photo-grid {
     display: grid;
-    /* Hier zorgen we ervoor dat de kolommen flexibel zijn */
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px; /* Ruimte tussen de afbeeldingen */
-    border: 2px solid red; /* TIJDELIJKE DEBUG BORDER: Zodat we kunnen zien of de grid-container werkt */
+    /* border: 2px solid red;  <-- DEZE REGEL IS NU VERWIJDERD */
 }
 
 .photo-grid img {
     width: 100%; /* Zorgt ervoor dat de afbeelding de breedte van de grid-cel vult */
-    height: auto; /* Behoudt de aspect ratio */
+    height: 200px; /* NIEUW: Vaste hoogte voor alle afbeeldingen */
+    object-fit: cover; /* NIEUW: Zorgt ervoor dat de afbeelding de hoogte vult zonder vervorming, snijdt eventueel bij */
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease;

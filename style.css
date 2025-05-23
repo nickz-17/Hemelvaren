@@ -153,18 +153,22 @@ body {
 
 .photo-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    /* Meer expliciete grid definitie om te testen */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* iets grotere min-breedte voor kolommen */
     gap: 20px; /* Ruimte tussen de afbeeldingen */
-    /* border: 2px solid red;  <-- DEZE REGEL IS NU VERWIJDERD */
+    border: 2px solid red; /* TIJDELIJKE DEBUG BORDER: Zodat we kunnen zien of de grid-container werkt */
+    padding: 10px; /* Extra padding om rand te zien */
+    background-color: rgba(255, 255, 255, 0.03); /* Lichte achtergrond om grid-gebied te markeren */
 }
 
 .photo-grid img {
     width: 100%; /* Zorgt ervoor dat de afbeelding de breedte van de grid-cel vult */
-    height: 200px; /* NIEUW: Vaste hoogte voor alle afbeeldingen */
-    object-fit: cover; /* NIEUW: Zorgt ervoor dat de afbeelding de hoogte vult zonder vervorming, snijdt eventueel bij */
+    height: 200px; /* Vaste hoogte voor alle afbeeldingen */
+    object-fit: cover; /* Zorgt ervoor dat de afbeelding de hoogte vult zonder vervorming, snijdt eventueel bij */
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease;
+    display: block; /* Zorgt ervoor dat de afbeelding als blok-element wordt behandeld */
 }
 
 .photo-grid img:hover {

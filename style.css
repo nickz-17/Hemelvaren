@@ -156,6 +156,7 @@ body {
     /* Hier zorgen we ervoor dat de kolommen flexibel zijn */
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px; /* Ruimte tussen de afbeeldingen */
+    border: 2px solid red; /* TIJDELIJKE DEBUG BORDER: Zodat we kunnen zien of de grid-container werkt */
 }
 
 .photo-grid img {

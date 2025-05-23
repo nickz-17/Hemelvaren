@@ -153,12 +153,12 @@ body {
 
 .photo-grid {
     display: grid;
-    /* Meer expliciete grid definitie om te testen */
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* iets grotere min-breedte voor kolommen */
+    /* Expliciet 3 kolommen voor desktop, zodat ze zeker naast elkaar staan */
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px; /* Ruimte tussen de afbeeldingen */
-    border: 2px solid red; /* TIJDELIJKE DEBUG BORDER: Zodat we kunnen zien of de grid-container werkt */
-    padding: 10px; /* Extra padding om rand te zien */
-    background-color: rgba(255, 255, 255, 0.03); /* Lichte achtergrond om grid-gebied te markeren */
+    /* border: 2px solid red; /* Rode rand verwijderd */
+    /* padding: 10px; /* Extra padding verwijderd */
+    /* background-color: rgba(255, 255, 255, 0.03); /* Lichte achtergrond verwijderd */
 }
 
 .photo-grid img {
@@ -201,5 +201,10 @@ body {
 
     .section-title {
         font-size: 1.8em;
+    }
+
+    /* Op mobiel: 1 kolom voor de foto galerij */
+    .photo-grid {
+        grid-template-columns: 1fr;
     }
 }

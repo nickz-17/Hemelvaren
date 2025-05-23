@@ -26,16 +26,42 @@ body {
 /* Header */
 
 .header {
+    /* Bestaande stijlen */
     background-color: rgba(0, 0, 0, 0.5); /* Iets transparant */
     padding: 40px 20px;
     text-align: center;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+
+    /* NIEUWE STIJLEN VOOR ACHTERGRONDAFBEELDING */
+    background-image: url('sun2.jpg'); /* Pad naar je afbeelding */
+    background-size: cover; /* Zorgt ervoor dat de afbeelding de hele header vult */
+    background-position: center; /* Centreert de afbeelding */
+    background-repeat: no-repeat; /* Voorkomt herhaling van de afbeelding */
+    position: relative; /* Nodig voor de overlay */
+    overflow: hidden; /* Zorgt ervoor dat de afbeelding niet buiten de header loopt */
 }
 
+/* Optioneel: Overlay over de header afbeelding voor betere leesbaarheid */
+/* Dit zorgt ervoor dat de tekst beter leesbaar blijft over de afbeelding */
+.header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4); /* Donkere, licht transparante overlay */
+    z-index: 1; /* Zorg dat de overlay boven de afbeelding ligt, maar onder de tekst */
+}
+
+/* Zorg dat de header-content boven de overlay ligt */
 .header-content {
     max-width: 800px;
     margin: 0 auto;
+    position: relative; /* Zorg dat de content boven de ::before overlay ligt */
+    z-index: 2; /* Hogere z-index dan de ::before pseudo-element */
 }
+
 
 .header-title {
     font-size: 2.5em;
@@ -143,4 +169,35 @@ body {
     transition: transform 0.3s ease;
 }
 
-.photo-grid img
+.photo-grid img:hover {
+    transform: scale(1.05); /* Lichte zoom bij hover */
+}
+
+/* Media Queries voor Responsiviteit */
+
+@media (max-width: 768px) {
+    .header-title {
+        font-size: 2em; /* Kleinere titel op mobiel */
+    }
+
+    .header-text {
+        font-size: 1em; /* Kleinere tekst op mobiel */
+    }
+
+    #countdown {
+        font-size: 1.5em; /* Kleinere countdown op mobiel */
+    }
+
+    .ticket-button {
+        padding: 10px 20px;
+        font-size: 1em;
+    }
+
+    .line-up-container {
+        flex-direction: column; /* Stapel de line-up secties op elkaar op mobiel */
+    }
+
+    .section-title {
+        font-size: 1.8em;
+    }
+}

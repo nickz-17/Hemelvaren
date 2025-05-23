@@ -107,7 +107,7 @@ body {
     max-width: 900px; /* Zorg dat er genoeg ruimte is */
     margin: 20px auto;
     padding: 20px;
-    border: 2px solid orange; /* NIEUW: Tijdelijke oranje rand om main-content te zien */
+    /* border: 2px solid orange; /* Tijdelijke oranje rand verwijderd */
 }
 
 /* Line-up Container */
@@ -153,25 +153,26 @@ body {
 /* Foto Galerij */
 
 .photo-grid {
-    display: grid;
-    /* Forceer 3 kolommen met gelijke breedte en minimale breedte */
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Terug naar auto-fit, maar met een iets hogere min-breedte */
+    display: flex; /* NIEUW: Gebruik Flexbox */
+    flex-wrap: wrap; /* NIEUW: Laat items naar de volgende regel springen indien nodig */
+    justify-content: center; /* NIEUW: Centreer de items horizontaal */
     gap: 20px; /* Ruimte tussen de afbeeldingen */
-    border: 3px dashed blue; /* Tijdelijke blauwe stippellijn om de grid-container te zien */
-    padding: 15px; /* Extra padding om rand beter te zien */
-    background-color: rgba(0, 255, 255, 0.05); /* Lichte cyaan achtergrond om het grid-gebied te markeren */
+    /* border: 3px dashed blue; /* Tijdelijke blauwe stippellijn verwijderd */
+    /* padding: 15px; /* Extra padding verwijderd */
+    /* background-color: rgba(0, 255, 255, 0.05); /* Lichte cyaan achtergrond verwijderd */
 }
 
 .photo-grid img {
-    width: 100%; /* Zorgt ervoor dat de afbeelding de breedte van de grid-cel vult */
+    flex: 1 1 calc(33.33% - 20px); /* NIEUW: Flex item basis voor 3 kolommen met gap */
+    max-width: 300px; /* NIEUW: Maximale breedte per afbeelding op grote schermen */
     height: 200px; /* Vaste hoogte voor alle afbeeldingen */
     object-fit: cover; /* Zorgt ervoor dat de afbeelding de hoogte vult zonder vervorming, snijdt eventueel bij */
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease;
     display: block; /* Zorgt ervoor dat de afbeelding als blok-element wordt behandeld */
-    border: 1px solid limegreen; /* Tijdelijke groene rand om individuele afbeeldingen te zien */
-    background-color: rgba(255, 0, 0, 0.1); /* Lichte rode achtergrond om de ruimte van de afbeelding te zien */
+    /* border: 1px solid limegreen; /* Tijdelijke groene rand verwijderd */
+    /* background-color: rgba(255, 0, 0, 0.1); /* Lichte rode achtergrond verwijderd */
 }
 
 .photo-grid img:hover {
@@ -208,6 +209,12 @@ body {
 
     /* Op mobiel: 1 kolom voor de foto galerij */
     .photo-grid {
-        grid-template-columns: 1fr;
+        flex-direction: column; /* NIEUW: Stapel items verticaal op mobiel */
+        align-items: center; /* NIEUW: Centreer items in de kolom */
+    }
+
+    .photo-grid img {
+        width: 100%; /* NIEUW: Volledige breedte op mobiel */
+        max-width: none; /* NIEUW: Verwijder max-width op mobiel */
     }
 }

@@ -68,8 +68,7 @@ body {
 
 .header-text {
     font-size: 1.1em;
-    /* OUDE KLEUREN: color: #99ff99; (groen) of color: #FF9900; (oranje) */
-    color: #00FFFF; /* Helder cyaan/turkoois, gelijk aan de ticket-button */
+    color: #00FFFF; /* Helder cyaan/turkoois */
     margin-bottom: 30px;
 }
 
@@ -87,8 +86,7 @@ body {
 .ticket-button {
     display: inline-block;
     padding: 15px 30px;
-    /* OUDE KLEUR: background-color: #00ffff; */
-    background-color: #FF007F; /* NIEUWE KLEUR: Levendig roze/magenta */
+    background-color: #FF007F; /* Levendig roze/magenta */
     color: #fff; /* Witte tekst op de knop voor contrast */
     text-decoration: none;
     border-radius: 8px;
@@ -99,7 +97,6 @@ body {
 }
 
 .ticket-button:hover {
-    /* OUDE HOVER KLEUR: background-color: #cc00cc; */
     background-color: #CC0066; /* Iets donkerder roze/magenta bij hover */
     color: #fff;
 }
@@ -156,13 +153,14 @@ body {
 
 .photo-grid {
     display: grid;
+    /* Hier zorgen we ervoor dat de kolommen flexibel zijn */
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+    gap: 20px; /* Ruimte tussen de afbeeldingen */
 }
 
 .photo-grid img {
-    width: 100%;
-    height: auto;
+    width: 100%; /* Zorgt ervoor dat de afbeelding de breedte van de grid-cel vult */
+    height: auto; /* Behoudt de aspect ratio */
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease;

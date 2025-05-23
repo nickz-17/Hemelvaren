@@ -68,8 +68,8 @@ body {
 
 .header-text {
     font-size: 1.1em;
-    /* OUDE KLEUR: color: #99ff99; */
-    color: #FF9900; /* NIEUWE KLEUR: Feloranje voor betere zichtbaarheid */
+    /* OUDE KLEUREN: color: #99ff99; (groen) of color: #FF9900; (oranje) */
+    color: #00FFFF; /* NIEUWE KLEUR: Helder cyaan/turkoois, gelijk aan de ticket-button */
     margin-bottom: 30px;
 }
 

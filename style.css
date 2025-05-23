@@ -104,7 +104,7 @@ body {
 /* Main Content */
 
 .main-content {
-    max-width: 900px;
+    max-width: 900px; /* Zorg dat er genoeg ruimte is */
     margin: 20px auto;
     padding: 20px;
 }
@@ -153,12 +153,12 @@ body {
 
 .photo-grid {
     display: grid;
-    /* Expliciet 3 kolommen voor desktop, zodat ze zeker naast elkaar staan */
-    grid-template-columns: repeat(3, 1fr);
+    /* Forceer 3 kolommen met gelijke breedte */
+    grid-template-columns: 1fr 1fr 1fr; /* Dwingt 3 kolommen, elk 1 fractie breed */
     gap: 20px; /* Ruimte tussen de afbeeldingen */
-    /* border: 2px solid red; /* Rode rand verwijderd */
-    /* padding: 10px; /* Extra padding verwijderd */
-    /* background-color: rgba(255, 255, 255, 0.03); /* Lichte achtergrond verwijderd */
+    border: 3px dashed blue; /* NIEUW: Tijdelijke blauwe stippellijn om de grid-container te zien */
+    padding: 15px; /* NIEUW: Extra padding om de rand beter te zien */
+    background-color: rgba(0, 255, 255, 0.05); /* NIEUW: Lichte cyaan achtergrond om het grid-gebied te markeren */
 }
 
 .photo-grid img {
@@ -169,6 +169,8 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease;
     display: block; /* Zorgt ervoor dat de afbeelding als blok-element wordt behandeld */
+    border: 1px solid limegreen; /* NIEUW: Tijdelijke groene rand om individuele afbeeldingen te zien */
+    background-color: rgba(255, 0, 0, 0.1); /* NIEUW: Lichte rode achtergrond om de ruimte van de afbeelding te zien */
 }
 
 .photo-grid img:hover {

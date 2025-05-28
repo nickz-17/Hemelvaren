@@ -107,3 +107,171 @@ body {
 
 .ticket-button:hover {
     background-color: #c06;
+}
+
+/* Main Content */
+.main-content {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+}
+
+/* Algemene Sectie Stijl */
+.section {
+    background-color: rgba(255, 255, 255, .05);
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, .2);
+    padding: 30px;
+    margin-bottom: 30px;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2em;
+    color: #f6c;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, .5);
+}
+
+/* Line-up Layout */
+.line-up-container {
+    display: flex;
+    gap: 30px;
+    margin-top: 20px;
+}
+.line-up-stage {
+    flex: 1;
+    background-color: rgba(0, 0, 0, .2);
+    padding: 20px;
+    border-radius: 8px;
+}
+.stage-title {
+    font-size: 1.5em;
+    color: #0ff;
+    margin-top: 0;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #f6c;
+    padding-bottom: 10px;
+}
+
+/* Sfeervideo Sectie */
+#sfeer-video {
+    /* VERBETERING: minder padding voor de video sectie */
+    padding: 0;
+}
+
+#sfeer-video .section-title {
+    padding-top: 15px; /* Alleen ruimte boven de titel */
+}
+
+.video-container {
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+.video-container video {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Over Ons & Contact Secties (alvast voorbereid) */
+.over-ons-container {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+.over-ons-tekst {
+    flex: 2;
+}
+.over-ons-afbeelding {
+    flex: 1;
+}
+.over-ons-afbeelding img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+.contact-info {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 1.2em;
+}
+.contact-info a {
+    color: #00FFFF;
+    text-decoration: none;
+}
+.contact-info a:hover {
+    text-decoration: underline;
+}
+.social-links {
+    text-align: center;
+    margin-top: 20px;
+}
+.social-links a {
+    font-size: 2em;
+    color: #eee;
+    margin: 0 15px;
+    transition: color 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+}
+.social-links a:hover {
+    color: #ff66cc;
+    transform: translateY(-5px);
+}
+
+
+/* Footer */
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin-top: 40px;
+    background-color: rgba(0, 0, 0, .3);
+}
+.footer-content {
+    text-align: center;
+}
+.footer-content p {
+    margin: 8px 0;
+}
+.footer-ticket-link {
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 1.1em;
+    color: #0ff;
+    transition: .3s;
+}
+.footer-ticket-link:hover {
+    color: #eee;
+    text-decoration: underline;
+}
+.copyright-text {
+    font-size: .9em;
+    color: #aaa;
+}
+
+/* RESPONSIVITEIT */
+@media (max-width:768px) {
+    .header-title {
+        font-size: 1.7em;
+        white-space: normal
+    }
+    .header-text {
+        font-size: 1em
+    }
+    .line-up-container {
+        flex-direction: column;
+        gap: 20px
+    }
+    .section-title {
+        font-size: 1.8em
+    }
+    .over-ons-container {
+        flex-direction: column;
+    }
+    .video-container {
+        max-width: 100%;
+    }
+}

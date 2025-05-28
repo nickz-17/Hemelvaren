@@ -44,8 +44,7 @@ body {
     height: 100%;
     content: "";
     position: absolute;
-    /* --- HIER IS DE VERBETERING --- */
-    background: rgba(0, 0, 0, .6); /* Was .4, nu 60% zwart voor beter contrast */
+    background: rgba(0, 0, 0, .4); /* Teruggezet naar de originele 40% */
     z-index: 1;
 }
 
@@ -61,12 +60,15 @@ body {
     white-space: nowrap;
     color: #f0f;
     margin-bottom: 20px;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, .5);
+    /* --- HIER IS DE VERBETERING --- */
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8); /* Donkerdere, duidelijkere schaduw */
 }
 
 .header-text {
     font-size: 1.1em;
-    color: #0ff;
+    /* --- HIER IS DE VERBETERING --- */
+    color: #FFFFFF; /* Veranderd naar helder wit voor maximaal contrast */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 1); /* Sterke, zwarte schaduw als een randje */
     margin-bottom: 30px;
 }
 
@@ -75,10 +77,4 @@ body {
     text-shadow: 2px 2px 5px rgba(0, 0, 0, .5);
     font-size: 2em;
     color: #ff6;
-    margin: 30px 0;
-}
-
-/* Ticket Button */
-.ticket-button {
-    font-weight: 700;
-    text
+    margin: 3

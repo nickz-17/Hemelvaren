@@ -44,7 +44,7 @@ body {
     height: 100%;
     content: "";
     position: absolute;
-    background: rgba(0, 0, 0, .4); /* Teruggezet naar de originele 40% */
+    background: rgba(0, 0, 0, .4);
     z-index: 1;
 }
 
@@ -60,13 +60,11 @@ body {
     white-space: nowrap;
     color: #f0f;
     margin-bottom: 20px;
-    /* --- HIER IS DE VERBETERING --- */
     text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8); /* Donkerdere, duidelijkere schaduw */
 }
 
 .header-text {
     font-size: 1.1em;
-    /* --- HIER IS DE VERBETERING --- */
     color: #FFFFFF; /* Veranderd naar helder wit voor maximaal contrast */
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 1); /* Sterke, zwarte schaduw als een randje */
     margin-bottom: 30px;

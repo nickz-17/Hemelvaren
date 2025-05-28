@@ -179,12 +179,10 @@ body {
     height: 100%;
     object-fit: cover;
 }
-
-/* HIER IS DE AANPASSING */
 /* Specifieke stijl voor de grote fotopagina galerij */
 .photo-grid-page .photo-item {
-    flex-basis: 200px; /* Kleinere basisbreedte */
-    max-width: 280px;  /* Iets kleinere maximale breedte */
+    flex-basis: 200px;
+    max-width: 280px;
 }
 
 
@@ -205,23 +203,29 @@ body {
     border-radius: 8px;
 }
 
-/* Over Ons & Contact Secties */
+/* Over Ons Sectie */
 .over-ons-container {
     display: flex;
     gap: 30px;
     align-items: center;
 }
 .over-ons-tekst {
-    flex: 2;
+    flex-grow: 1; /* Laat de tekst alle resterende ruimte vullen */
 }
 .over-ons-afbeelding {
-    flex: 1;
+    flex-grow: 0;    /* De afbeelding groeit niet */
+    flex-shrink: 1;  /* De afbeelding mag wel krimpen als er weinig ruimte is */
+    flex-basis: 300px;/* Geef de afbeelding een 'ideale' breedte van 300px */
+    max-width: 35%;  /* Zorg ervoor dat de afbeelding nooit meer dan 35% 
+                       van de breedte van de .over-ons-container inneemt. */
 }
 .over-ons-afbeelding img {
     width: 100%;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.3);
 }
+
+/* Contact Sectie */
 .contact-info {
     text-align: center;
     margin: 20px 0;

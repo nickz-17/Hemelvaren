@@ -154,7 +154,7 @@ body {
     padding-bottom: 10px;
 }
 
-/* Foto Galerij */
+/* Foto Galerij Algemeen */
 .photo-grid {
     display: flex;
     flex-wrap: wrap;
@@ -188,14 +188,15 @@ body {
 
 /* Sfeervideo Sectie */
 #sfeer-video {
-    padding: 0;
+    padding: 0; /* Geen padding op de hele sectie */
 }
 #sfeer-video .section-title {
-    padding-top: 15px;
+    padding-top: 15px; /* Alleen ruimte boven de titel */
+    /* margin-bottom is al 20px, wat goed is */
 }
 .video-container {
     max-width: 80%;
-    margin: 0 auto;
+    margin: 0 auto; /* Centreert de container als deze smaller is dan 100% */
 }
 .video-container video {
     width: 100%;
@@ -210,14 +211,13 @@ body {
     align-items: center;
 }
 .over-ons-tekst {
-    flex-grow: 1; /* Laat de tekst alle resterende ruimte vullen */
+    flex-grow: 1;
 }
 .over-ons-afbeelding {
-    flex-grow: 0;    /* De afbeelding groeit niet */
-    flex-shrink: 1;  /* De afbeelding mag wel krimpen als er weinig ruimte is */
-    flex-basis: 300px;/* Geef de afbeelding een 'ideale' breedte van 300px */
-    max-width: 35%;  /* Zorg ervoor dat de afbeelding nooit meer dan 35% 
-                       van de breedte van de .over-ons-container inneemt. */
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: 300px;
+    max-width: 35%;
 }
 .over-ons-afbeelding img {
     width: 100%;
@@ -306,6 +306,6 @@ body {
         flex-direction: column;
     }
     .video-container {
-        max-width: 100%;
+        max-width: 100%; /* Op mobiel mag de video de volle breedte pakken */
     }
 }

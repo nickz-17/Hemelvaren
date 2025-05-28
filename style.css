@@ -56,8 +56,8 @@ body {
 }
 
 .header-title {
-    font-size: 2.3em; /* Iets kleiner gemaakt om beter te passen */
-    white-space: nowrap; /* Dwingt de tekst op één regel te blijven */
+    font-size: 2.3em;
+    white-space: nowrap; /* Dwingt de tekst op één regel te blijven op grote schermen */
     color: #f0f;
     margin-bottom: 20px;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
@@ -115,6 +115,7 @@ body {
     font-size: 2em;
     color: #ff66cc;
     margin-bottom: 20px;
+    text-align: center; /* Titel van de sectie centreren */
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
@@ -126,12 +127,24 @@ body {
 /* Line-up Layout */
 .line-up-container {
     display: flex;
-    gap: 20px;
-    margin-bottom: 30px;
+    gap: 30px; /* Iets meer ruimte */
+    margin-top: 20px;
 }
 
-.line-up-section {
+.line-up-stage { /* Was .line-up-section */
     flex: 1;
+    background-color: rgba(0,0,0,0.2);
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.stage-title { /* Nieuwe class voor de H3 */
+    font-size: 1.5em;
+    color: #00FFFF;
+    margin-top: 0;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #ff66cc;
+    padding-bottom: 10px;
 }
 
 /* Foto Galerij */
@@ -139,10 +152,12 @@ body {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
+    justify-content: center; /* Centreer de foto's */
 }
 
 .photo-item {
     flex: 1 1 250px;
+    max-width: 350px; /* Voorkomt dat foto's te groot worden */
     height: 200px;
     border-radius: 8px;
     overflow: hidden;
@@ -161,10 +176,22 @@ body {
     object-fit: cover;
 }
 
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    background-color: rgba(0, 0, 0, 0.3);
+    color: #aaa;
+    font-size: 0.9em;
+}
+
+
 /* RESPONSIVITEIT */
 @media (max-width: 768px) {
     .header-title {
-        font-size: 1.7em; /* Verkleind voor mobiele schermen */
+        font-size: 1.7em;
+        white-space: normal; /* Zorgt dat de titel kan afbreken op kleine schermen */
     }
     .header-text {
         font-size: 1em;
@@ -176,6 +203,7 @@ body {
     /* Line-up secties onder elkaar op kleine schermen */
     .line-up-container {
         flex-direction: column;
+        gap: 20px;
     }
     
     .section-title {

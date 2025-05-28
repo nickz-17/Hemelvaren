@@ -16,11 +16,11 @@ body {
 
 /* Achtergrond Overlay */
 .background-overlay {
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    position: fixed;
     background: linear-gradient(45deg, rgba(30, 0, 60, .8), rgba(0, 60, 30, .8));
     opacity: .7;
     z-index: -1;
@@ -28,8 +28,6 @@ body {
 
 /* Header */
 .header {
-    top: 0;
-    left: 0;
     padding: 40px 20px;
     background-image: url(sun2.jpg);
     background-size: cover;
@@ -40,10 +38,12 @@ body {
 }
 
 .header::before {
-    width: 100%;
-    height: 100%;
     content: "";
     position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background: rgba(0, 0, 0, .4);
     z-index: 1;
 }
@@ -60,22 +60,14 @@ body {
     white-space: nowrap;
     color: #f0f;
     margin-bottom: 20px;
-    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8); /* Donkerdere, duidelijkere schaduw */
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
 }
 
 .header-text {
     font-size: 1.1em;
-    color: #FFFFFF; /* Veranderd naar helder wit voor maximaal contrast */
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 1); /* Sterke, zwarte schaduw als een randje */
-    margin-bottom: 30px;
-}
-
-/* Countdown Timer */
-#countdown {
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, .5);
-    font-size: 2em;
-    color: #ff6;
-    margin: 30px 0;
+    color: #00FFFF; /* TERUGGEZET NAAR CYAAN */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 1); /* MAAR MET DE STERKE SCHADUW VOOR CONTRAST */
+    margin-bottom: 40px; /* Iets meer ruimte na het verwijderen van de countdown */
 }
 
 /* Ticket Button */
@@ -113,11 +105,11 @@ body {
 }
 
 .section-title {
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, .5);
     text-align: center;
     font-size: 2em;
     color: #f6c;
     margin-bottom: 20px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, .5);
 }
 
 .section-text {
@@ -222,10 +214,6 @@ body {
 
     .header-text {
         font-size: 1em
-    }
-
-    #countdown {
-        font-size: 1.5em
     }
 
     .line-up-container {

@@ -185,18 +185,16 @@ body {
     max-width: 280px;
 }
 
-
 /* Sfeervideo Sectie */
 #sfeer-video {
-    padding: 0; /* Geen padding op de hele sectie */
+    padding: 0;
 }
 #sfeer-video .section-title {
-    padding-top: 15px; /* Alleen ruimte boven de titel */
-    /* margin-bottom is al 20px, wat goed is */
+    padding-top: 15px;
 }
 .video-container {
     max-width: 80%;
-    margin: 0 auto; /* Centreert de container als deze smaller is dan 100% */
+    margin: 0 auto;
 }
 .video-container video {
     width: 100%;
@@ -206,21 +204,21 @@ body {
 
 /* Over Ons Sectie */
 .over-ons-container {
-    display: flex;
-    gap: 30px;
-    align-items: center;
+    display: flex; /* Zorgt voor layout naast elkaar */
+    gap: 30px;     /* Ruimte tussen tekst en afbeelding */
+    align-items: center; /* Lijn tekst en afbeelding verticaal uit */
 }
 .over-ons-tekst {
-    flex-grow: 1;
+    flex-grow: 1; /* Tekst neemt de meeste ruimte */
 }
 .over-ons-afbeelding {
-    flex-grow: 0;
-    flex-shrink: 1;
-    flex-basis: 300px;
-    max-width: 35%;
+    flex-grow: 0;    /* Afbeelding groeit niet */
+    flex-shrink: 1;  /* Afbeelding mag krimpen */
+    flex-basis: 300px;/* Stelt een basisbreedte in voor de afbeelding container */
+    max-width: 35%;  /* Afbeelding neemt maximaal 35% van de container breedte in */
 }
 .over-ons-afbeelding img {
-    width: 100%;
+    width: 100%; /* Afbeelding vult zijn container */
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.3);
 }
@@ -253,7 +251,6 @@ body {
     color: #ff66cc;
     transform: translateY(-5px);
 }
-
 
 /* Footer */
 .footer {
@@ -303,9 +300,13 @@ body {
         font-size: 1.8em
     }
     .over-ons-container {
-        flex-direction: column;
+        flex-direction: column; /* Afbeelding onder tekst op smalle schermen */
+    }
+    .over-ons-afbeelding {
+        max-width: 100%; /* Afbeelding mag volledige breedte op smalle schermen */
+        margin-top: 20px; /* Ruimte boven afbeelding als deze gestapeld is */
     }
     .video-container {
-        max-width: 100%; /* Op mobiel mag de video de volle breedte pakken */
+        max-width: 100%;
     }
 }

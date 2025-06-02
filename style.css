@@ -1,9 +1,9 @@
-/* Universele Box Sizing */
+/* universele box sizing */
 *, *::after, *::before {
     box-sizing: border-box;
 }
 
-/* Algemene Stijlen */
+/* algemene stijlen */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -14,7 +14,7 @@ body {
     overflow-x: hidden;
 }
 
-/* Achtergrond Overlay */
+/* achtergrond overlay */
 .background-overlay {
     position: fixed;
     top: 0;
@@ -26,7 +26,7 @@ body {
     z-index: -1;
 }
 
-/* Header */
+/* header */
 .header {
     padding: 40px 20px;
     background-image: url(sun2.jpg);
@@ -70,7 +70,7 @@ body {
     margin-bottom: 20px;
 }
 
-/* Countdown Timer */
+/* countdown timer */
 #countdown {
     text-shadow: 2px 2px 5px rgba(0, 0, 0, .5); 
     font-size: 2em;                              
@@ -78,7 +78,7 @@ body {
     margin: 30px 0;                              
 }
 
-/* Navigatie Menu */
+/* navigatie menu */
 .main-nav {
     border-top: 1px solid rgba(255, 255, 255, 0.2);
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
@@ -99,7 +99,7 @@ body {
     color: #00FFFF;
 }
 
-/* Ticket Button */
+/* ticket button */
 .ticket-button {
     font-weight: 700;
     text-decoration: none;
@@ -117,11 +117,11 @@ body {
     background-color: #c06;
 }
 
-/* Weer Widget Styling - AANGEPAST voor 5-daagse voorspelling */
+/* weer widget styling */
 #weather-info {
     text-align: center;
     color: #eee;
-    width: 100%; /* Zorg dat de container de breedte van de sectie neemt */
+    width: 100%;
 }
 
 .forecast-container {
@@ -133,15 +133,15 @@ body {
 }
 
 .forecast-day {
-    flex: 1 1 140px; /* Laat dagen groeien/krimpen, basis van ~140px (iets kleiner voor 5 dagen) */
+    flex: 1 1 140px; 
     min-width: 120px; 
     background-color: rgba(0, 0, 0, 0.2);
     padding: 10px;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-    display: flex; /* Maak flex container voor interne uitlijning */
-    flex-direction: column; /* Stapel elementen in het dagblok */
-    align-items: center; /* Centreer horizontaal */
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
 }
 
 .forecast-day-name {
@@ -157,7 +157,7 @@ body {
     margin-bottom: 5px;
 }
 
-.weather-temp.forecast-temp-small { /* Combineren van classes voor specificiteit indien nodig */
+.weather-temp.forecast-temp-small { 
     font-size: 1.4em;  
     font-weight: bold;
     margin: 0 0 5px 0;
@@ -167,19 +167,19 @@ body {
     font-size: 0.8em;
     margin: 0;
     text-transform: capitalize;
-    min-height: 2.4em; /* Voor gelijke hoogte van de blokjes */
-    line-height: 1.2em; /* Zorgt dat 2 regels tekst passen */
+    min-height: 2.4em; 
+    line-height: 1.2em; 
 }
 
 
-/* Main Content */
+/* main content */
 .main-content {
     max-width: 900px;
     margin: 20px auto;
     padding: 20px;
 }
 
-/* Algemene Sectie Stijl */
+/* algemene sectie stijl */
 .section {
     background-color: rgba(255, 255, 255, .05);
     border-radius: 12px;
@@ -196,7 +196,7 @@ body {
     text-shadow: 2px 2px 5px rgba(0, 0, 0, .5);
 }
 
-/* Line-up Layout */
+/* line-up layout */
 .line-up-container {
     display: flex;
     gap: 30px;
@@ -217,7 +217,7 @@ body {
     padding-bottom: 10px;
 }
 
-/* Foto Galerij Algemeen */
+/* foto galerij algemeen */
 .photo-grid {
     display: flex;
     flex-wrap: wrap;
@@ -242,14 +242,14 @@ body {
     height: 100%;
     object-fit: cover;
 }
-/* Specifieke stijl voor de grote fotopagina galerij */
+/* specifieke stijl voor de grote fotopagina galerij */
 .photo-grid-page .photo-item {
     flex-basis: 200px;
     max-width: 280px;
 }
 
 
-/* Sfeervideo Sectie */
+/* sfeervideo sectie */
 #sfeer-video {
     padding: 0;
 }
@@ -266,26 +266,29 @@ body {
     border-radius: 8px;
 }
 
-/* Over Ons Sectie */
+/* over ons sectie - vernieuwde layout: afbeelding onder tekst en gecentreerd */
 .over-ons-container {
 }
+
 .over-ons-tekst {
-    margin-bottom: 25px; 
+    margin-bottom: 25px; /* ruimte tussen de tekst en de afbeelding eronder */
 }
+
 .over-ons-afbeelding {
-    display: block; 
+    display: block; /* maakt margin: auto; voor centreren mogelijk */
     margin-left: auto;
     margin-right: auto;
-    max-width: 600px;  
+    max-width: 600px;  /* maximaal 600px breed of pas aan naar wens (bijv 70%) */
 }
+
 .over-ons-afbeelding img {
-    width: 100%; 
-    height: auto; 
+    width: 100%; /* afbeelding vult zijn container */
+    height: auto; /* behoudt de originele beeldverhouding */
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.3);
 }
 
-/* Contact Sectie */
+/* contact sectie */
 .contact-info {
     text-align: center;
     margin: 20px 0;
@@ -315,7 +318,7 @@ body {
 }
 
 
-/* Footer */
+/* footer */
 .footer {
     display: flex;
     justify-content: center;
@@ -346,7 +349,7 @@ body {
     color: #aaa;
 }
 
-/* RESPONSIVITEIT */
+/* responsiviteit */
 @media (max-width:768px) {
     .header-title {
         font-size: 1.7em;
@@ -365,21 +368,21 @@ body {
     .section-title {
         font-size: 1.8em
     }
+    /* .over-ons-container is nu standaard al gestapeld dus geen flex-direction: column meer nodig hier */
     .over-ons-afbeelding {
-        max-width: 90%; 
+        max-width: 90%; /* op kleinere schermen eventueel iets smaller relatief gezien */
     }
     .video-container {
         max-width: 100%;
     }
-    .forecast-container { /* Zorg dat de forecast items onder elkaar komen op mobiel */
+    .forecast-container { /* zorg dat de forecast items onder elkaar komen op mobiel */
         flex-direction: column;
-        align-items: center; /* Centreer de gestapelde dagen */
+        align-items: center; /* centreer de gestapelde dagen */
     }
     .forecast-day {
-        flex-basis: auto; /* Reset flex-basis voor gestapelde items */
-        width: 80%; /* Geef ze een redelijke breedte op mobiel */
-        min-width: 0; /* Reset min-width */
-        margin-bottom: 10px; /* Ruimte tussen gestapelde dagen */
+        flex-basis: auto; /* reset flex-basis voor gestapelde items */
+        width: 80%; /* geef ze een redelijke breedte op mobiel */
+        min-width: 0; /* reset min-width */
+        margin-bottom: 10px; /* ruimte tussen gestapelde dagen */
     }
-
 }

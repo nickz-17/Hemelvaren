@@ -46,7 +46,7 @@ function startCountdown() {
 
 // --- Weer API Functie ---
 function fetchWeatherData() {
-    const apiKey = '9b41532e75a9d1f71bfcd87717b3a4b8'; // <-- BELANGRIJK: Jouw API-sleutel hier!
+    const apiKey = 'c90e570c17d996fb9ce185c8fd8d6b16'; // <-- BELANGRIJK: Jouw API-sleutel hier!
     const city = 'Groningen'; // Stad waarvoor je het weer wilt
     const countryCode = 'NL';  // Landcode
     const lang = 'nl';         // Taal voor de omschrijving (Nederlands)

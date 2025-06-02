@@ -72,12 +72,11 @@ body {
 
 /* Countdown Timer */
 #countdown {
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, .5); /* Bestaande styling */
-    font-size: 2em;                              /* Bestaande styling */
-    color: #ff6;                                /* Bestaande styling */
-    margin: 30px 0;                              /* Bestaande styling voor ruimte in de header */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, .5); 
+    font-size: 2em;                              
+    color: #ff6;                                
+    margin: 30px 0;                              
 }
-
 
 /* Navigatie Menu */
 .main-nav {
@@ -118,38 +117,58 @@ body {
     background-color: #c06;
 }
 
-/* Weer Widget Styling - AANGEPAST */
+/* Weer Widget Styling - AANGEPAST voor 5-daagse voorspelling */
 #weather-info {
-    /* margin-top: 20px; /* Niet meer nodig, de <section> geeft al margin */
-    /* padding: 15px; /* Niet meer nodig, de <section> geeft al padding */
-    /* background-color: rgba(0, 0, 0, 0.3); /* Niet meer nodig, de <section> heeft al een achtergrond */
-    /* border-radius: 8px; /* Niet meer nodig, de <section> heeft al een radius */
-    text-align: center; /* Behoud dit om de inhoud te centreren */
-    color: #eee;       /* Behoud dit voor tekstkleur */
+    text-align: center;
+    color: #eee;
+    width: 100%; /* Zorg dat de container de breedte van de sectie neemt */
 }
 
-.weather-widget {
+.forecast-container {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
+    flex-wrap: wrap; 
+    justify-content: space-around; 
+    gap: 10px; 
+    margin-top: 10px;
 }
 
-.weather-icon {
-    width: 50px;
-    height: 50px;
+.forecast-day {
+    flex: 1 1 140px; /* Laat dagen groeien/krimpen, basis van ~140px (iets kleiner voor 5 dagen) */
+    min-width: 120px; 
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    display: flex; /* Maak flex container voor interne uitlijning */
+    flex-direction: column; /* Stapel elementen in het dagblok */
+    align-items: center; /* Centreer horizontaal */
 }
 
-.weather-temp {
-    font-size: 1.8em;
+.forecast-day-name {
     font-weight: bold;
-    margin: 0;
+    margin-bottom: 8px;
+    font-size: 0.9em;
+    text-transform: capitalize;
 }
 
-.weather-desc {
-    font-size: 1em;
+.forecast-icon-small { 
+    width: 40px;       
+    height: 40px;
+    margin-bottom: 5px;
+}
+
+.weather-temp.forecast-temp-small { /* Combineren van classes voor specificiteit indien nodig */
+    font-size: 1.4em;  
+    font-weight: bold;
+    margin: 0 0 5px 0;
+}
+
+.weather-desc.forecast-desc-small { 
+    font-size: 0.8em;
     margin: 0;
     text-transform: capitalize;
+    min-height: 2.4em; /* Voor gelijke hoogte van de blokjes */
+    line-height: 1.2em; /* Zorgt dat 2 regels tekst passen */
 }
 
 
@@ -165,8 +184,8 @@ body {
     background-color: rgba(255, 255, 255, .05);
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, .2);
-    padding: 30px; /* Deze padding geldt nu ook voor de weer-sectie */
-    margin-bottom: 30px; /* Deze margin geldt nu ook voor de weer-sectie */
+    padding: 30px;
+    margin-bottom: 30px;
 }
 
 .section-title {
@@ -232,10 +251,10 @@ body {
 
 /* Sfeervideo Sectie */
 #sfeer-video {
-    padding: 0; 
+    padding: 0;
 }
 #sfeer-video .section-title {
-    padding-top: 15px; 
+    padding-top: 15px;
 }
 .video-container {
     max-width: 80%;
@@ -336,7 +355,7 @@ body {
     .header-text {
         font-size: 1em
     }
-    #countdown { /* Zorg ervoor dat countdown ook op mobiel goed schaalt */
+    #countdown { 
         font-size: 1.5em;
     }
     .line-up-container {
@@ -352,4 +371,15 @@ body {
     .video-container {
         max-width: 100%;
     }
+    .forecast-container { /* Zorg dat de forecast items onder elkaar komen op mobiel */
+        flex-direction: column;
+        align-items: center; /* Centreer de gestapelde dagen */
+    }
+    .forecast-day {
+        flex-basis: auto; /* Reset flex-basis voor gestapelde items */
+        width: 80%; /* Geef ze een redelijke breedte op mobiel */
+        min-width: 0; /* Reset min-width */
+        margin-bottom: 10px; /* Ruimte tussen gestapelde dagen */
+    }
+
 }

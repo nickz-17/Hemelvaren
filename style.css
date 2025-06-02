@@ -109,6 +109,41 @@ body {
     background-color: #c06;
 }
 
+/* Weer Widget Styling (Toegevoegd voor Week 6 API integratie) */
+#weather-info {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+    text-align: center;
+    color: #eee;
+}
+
+.weather-widget {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.weather-icon {
+    width: 50px;
+    height: 50px;
+}
+
+.weather-temp {
+    font-size: 1.8em;
+    font-weight: bold;
+    margin: 0;
+}
+
+.weather-desc {
+    font-size: 1em;
+    margin: 0;
+    text-transform: capitalize;
+}
+
+
 /* Main Content */
 .main-content {
     max-width: 900px;
@@ -206,13 +241,11 @@ body {
 /* Over Ons Sectie - VERNIEUWDE LAYOUT: AFBEELDING ONDER TEKST EN GECENTREERD */
 .over-ons-container {
     /* display: flex; is niet meer nodig voor het stapelen, 
-       de divs zijn block-level en stapelen vanzelf.
-       We kunnen het eventueel gebruiken met flex-direction: column; als we items collectief willen uitlijnen. */
+       de divs zijn block-level en stapelen vanzelf. */
 }
 
 .over-ons-tekst {
     margin-bottom: 25px; /* Ruimte tussen de tekst en de afbeelding eronder */
-    /* De tekst neemt vanzelf de beschikbare breedte */
 }
 
 .over-ons-afbeelding {
@@ -220,7 +253,6 @@ body {
     margin-left: auto;
     margin-right: auto;
     max-width: 600px;  /* Maximaal 600px breed, of pas aan naar wens (bijv. 70%) */
-                       /* Dit is groter dan de vorige 35% zodat de foto niet te klein is */
 }
 
 .over-ons-afbeelding img {

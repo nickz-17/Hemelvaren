@@ -109,7 +109,7 @@ body {
     color: #fff;
     border-radius: 8px;
     font-size: 1.2em;
-    transition: background-color .3s;
+    transition: background-color .3s ease; /* behoud bestaande transitie */
     box-shadow: 0 4px 6px rgba(0, 0, 0, .3);
 }
 
@@ -207,7 +207,16 @@ body {
     background-color: rgba(0, 0, 0, .2);
     padding: 20px;
     border-radius: 8px;
+    /* HIER DE TOEGEVOEGDE TRANSITIE VOOR HET HOVER EFFECT */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
 }
+
+/* HIER HET NIEUWE HOVER EFFECT VOOR LINE-UP BLOKKEN */
+.line-up-stage:hover {
+    transform: translateY(-5px); /* springt iets omhoog */
+    box-shadow: 0 8px 15px rgba(0,0,0,0.4); /* duidelijkere schaduw */
+}
+
 .stage-title {
     font-size: 1.5em;
     color: #0ff;
@@ -225,17 +234,42 @@ body {
     justify-content: center;
 }
 .photo-item {
+    position: relative; /* nodig voor de overlay in de eerdere versie, kan blijven */
     flex: 1 1 250px;
     max-width: 350px;
     height: 200px;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, .3);
-    transition: transform .3s;
+    transition: transform .3s ease; /* transitie voor de scale */
 }
+
+/* overlay voor foto-item (als je die nog had/wilt) */
+.photo-item::after {
+    content: '🔍'; 
+    font-size: 2em;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    opacity: 0; 
+    transition: opacity 0.3s ease;
+}
+
 .photo-item:hover {
     transform: scale(1.05);
 }
+
+.photo-item:hover::after {
+    opacity: 1; 
+}
+
 .photo-item img {
     display: block;
     width: 100%;
@@ -266,24 +300,24 @@ body {
     border-radius: 8px;
 }
 
-/* over ons sectie - vernieuwde layout: afbeelding onder tekst en gecentreerd */
+/* over ons sectie */
 .over-ons-container {
 }
 
 .over-ons-tekst {
-    margin-bottom: 25px; /* ruimte tussen de tekst en de afbeelding eronder */
+    margin-bottom: 25px; 
 }
 
 .over-ons-afbeelding {
-    display: block; /* maakt margin: auto; voor centreren mogelijk */
+    display: block; 
     margin-left: auto;
     margin-right: auto;
-    max-width: 600px;  /* maximaal 600px breed of pas aan naar wens (bijv 70%) */
+    max-width: 600px;  
 }
 
 .over-ons-afbeelding img {
-    width: 100%; /* afbeelding vult zijn container */
-    height: auto; /* behoudt de originele beeldverhouding */
+    width: 100%; 
+    height: auto; 
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.3);
 }
@@ -368,21 +402,20 @@ body {
     .section-title {
         font-size: 1.8em
     }
-    /* .over-ons-container is nu standaard al gestapeld dus geen flex-direction: column meer nodig hier */
     .over-ons-afbeelding {
-        max-width: 90%; /* op kleinere schermen eventueel iets smaller relatief gezien */
+        max-width: 90%; 
     }
     .video-container {
         max-width: 100%;
     }
-    .forecast-container { /* zorg dat de forecast items onder elkaar komen op mobiel */
+    .forecast-container { 
         flex-direction: column;
-        align-items: center; /* centreer de gestapelde dagen */
+        align-items: center; 
     }
     .forecast-day {
-        flex-basis: auto; /* reset flex-basis voor gestapelde items */
-        width: 80%; /* geef ze een redelijke breedte op mobiel */
-        min-width: 0; /* reset min-width */
-        margin-bottom: 10px; /* ruimte tussen gestapelde dagen */
+        flex-basis: auto; 
+        width: 80%; 
+        min-width: 0; 
+        margin-bottom: 10px; 
     }
 }

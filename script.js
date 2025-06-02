@@ -43,7 +43,7 @@ function startCountdown() {
 // --- Weer API Functie (nu voor voorspelling) ---
 function fetchWeatherForecast() {
     // Jouw API-sleutel is hier ingevuld
-    const apiKey = 'c90e570c17d996f69ce185c8fd8d6b16'; 
+    const apiKey = '9b41532e75a9d1f71bfcd87717b3a4b8'; 
     const city = 'Groningen'; 
     const countryCode = 'NL';  
     const lang = 'nl';         

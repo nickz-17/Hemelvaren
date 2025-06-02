@@ -40,10 +40,9 @@ function startCountdown() {
     const countdownInterval = setInterval(updateCountdown, 1000);
 }
 
-// --- Weer API Functie (nu voor voorspelling) ---
+// --- Weer API Functie (nu voor 5-daagse voorspelling) ---
 function fetchWeatherForecast() {
-    // Jouw API-sleutel is hier ingevuld
-    const apiKey = '9b41532e75a9d1f71bfcd87717b3a4b8'; 
+    const apiKey = 'c90e570c17d996f69ce185c8fd8d6b16'; // Zorg dat dit JOUW EIGEN actieve API-sleutel is
     const city = 'Groningen'; 
     const countryCode = 'NL';  
     const lang = 'nl';         
@@ -58,10 +57,16 @@ function fetchWeatherForecast() {
         return;
     }
 
+    // Basis check of er een API key is (geen check op specifieke voorbeeld keys meer)
+    if (apiKey.trim() === '' || apiKey === 'VERVANG_DIT_DOOR_JOUW_API_SLEUTEL') { 
+        weatherDiv.innerHTML = '<p style="color: yellow;">API-sleutel voor weer niet (correct) ingesteld in script.js!</p>';
+        console.error('OpenWeatherMap API-sleutel niet ingesteld of nog placeholder in script.js.');
+        return;
+    }
+
     fetch(forecastApiUrl)
         .then(response => {
             if (!response.ok) {
-                // Dit vangt nu direct de API fouten op, zoals 401 voor een ongeldige/inactieve sleutel
                 throw new Error(`API Fout: ${response.status} - ${response.statusText}`);
             }
             return response.json();
@@ -69,26 +74,70 @@ function fetchWeatherForecast() {
         .then(data => {
             // console.log(data); 
 
-            if (data.list && data.list.length > 7) {
-                const forecastEntry = data.list[7]; 
-                
-                const temperature = forecastEntry.main.temp;
-                const description = forecastEntry.weather[0].description;
-                const iconCode = forecastEntry.weather[0].icon;
-                const iconUrl = `http://openweathermap.org/img/wn/${iconCode}@2x.png`;
-                
-                const forecastDateTime = new Date(forecastEntry.dt * 1000); 
-                const options = { weekday: 'long', hour: '2-digit', minute: '2-digit' };
-                const formattedDateTime = forecastDateTime.toLocaleDateString('nl-NL', options);
+            if (data.list && data.list.length > 0) {
+                let forecastOutputHtml = '<div class="forecast-container">';
+                const processedDates = new Set(); 
 
-                weatherDiv.innerHTML = `
-                    <p style="font-size:0.9em; margin-bottom:5px;">Voorspelling voor ${formattedDateTime}:</p>
-                    <div class="weather-widget">
-                        <img src="${iconUrl}" alt="${description}" class="weather-icon">
-                        <p class="weather-temp">${Math.round(temperature)}°C</p>
-                        <p class="weather-desc">${description}</p>
-                    </div>
-                `;
+                for (let i = 0; i < data.list.length && processedDates.size < 5; i++) {
+                    const entry = data.list[i];
+                    const forecastDateTime = new Date(entry.dt * 1000);
+                    const forecastDateStr = forecastDateTime.toLocaleDateString('nl-NL');
+                    const forecastHour = forecastDateTime.getHours();
+
+                    if (!processedDates.has(forecastDateStr) && (forecastHour >= 12 && forecastHour <= 14)) {
+                        processedDates.add(forecastDateStr); 
+
+                        const dayName = forecastDateTime.toLocaleDateString('nl-NL', { weekday: 'short' });
+                        const temperature = entry.main.temp;
+                        const description = entry.weather[0].description;
+                        const iconCode = entry.weather[0].icon;
+                        const iconUrl = `http://openweathermap.org/img/wn/${iconCode}@2x.png`;
+
+                        forecastOutputHtml += `
+                            <div class="forecast-day">
+                                <p class="forecast-day-name">${dayName}</p>
+                                <img src="${iconUrl}" alt="${description}" class="weather-icon forecast-icon-small">
+                                <p class="weather-temp forecast-temp-small">${Math.round(temperature)}°C</p>
+                                <p class="weather-desc forecast-desc-small">${description}</p>
+                            </div>
+                        `;
+                    }
+                }
+                // Fallback als er minder dan 5 'middag'-voorspellingen zijn gevonden
+                if (processedDates.size < 5) {
+                    for (let i = 0; i < data.list.length && processedDates.size < 5; i++) {
+                         const entry = data.list[i];
+                         const forecastDateTime = new Date(entry.dt * 1000);
+                         const forecastDateStr = forecastDateTime.toLocaleDateString('nl-NL');
+
+                         if (!processedDates.has(forecastDateStr)) { // Voeg alleen toe als de dag nog niet is verwerkt
+                            processedDates.add(forecastDateStr);
+                            const dayName = forecastDateTime.toLocaleDateString('nl-NL', { weekday: 'short' });
+                            const timeStr = forecastDateTime.toLocaleTimeString('nl-NL', { hour: '2-digit', minute: '2-digit'});
+                            const temperature = entry.main.temp;
+                            const description = entry.weather[0].description;
+                            const iconCode = entry.weather[0].icon;
+                            const iconUrl = `http://openweathermap.org/img/wn/${iconCode}@2x.png`;
+                            forecastOutputHtml += `
+                                <div class="forecast-day">
+                                    <p class="forecast-day-name">${dayName} ${timeStr}</p>
+                                    <img src="${iconUrl}" alt="${description}" class="weather-icon forecast-icon-small">
+                                    <p class="weather-temp forecast-temp-small">${Math.round(temperature)}°C</p>
+                                    <p class="weather-desc forecast-desc-small">${description}</p>
+                                </div>
+                            `;
+                         }
+                    }
+                }
+
+                forecastOutputHtml += '</div>';
+
+                if (processedDates.size > 0) {
+                    weatherDiv.innerHTML = forecastOutputHtml;
+                } else {
+                    weatherDiv.innerHTML = '<p style="color: orange;">Kon geen geschikte dagelijkse voorspellingen vinden in de data.</p>';
+                }
+
             } else {
                 weatherDiv.innerHTML = '<p style="color: orange;">Onvoldoende voorspellingsdata ontvangen.</p>';
             }
@@ -96,9 +145,9 @@ function fetchWeatherForecast() {
         .catch(error => {
             console.error('Fout bij het ophalen van weersvoorspelling:', error);
             weatherDiv.innerHTML = '<p style="color: red;">Kon de weersvoorspelling niet laden.</p>';
-            if (error.message.includes('401')) { // Specifiek voor 'Unauthorized'
+            if (error.message.includes('401')) { 
                  weatherDiv.innerHTML += '<p style="color: orange; font-size: 0.8em;">(Controleer API-sleutel; mogelijk ongeldig, nog niet actief, of e-mail niet bevestigd)</p>';
-            } else if (error.message.includes('Failed to fetch')) { // Netwerkprobleem
+            } else if (error.message.includes('Failed to fetch')) { 
                  weatherDiv.innerHTML += '<p style="color: orange; font-size: 0.8em;">(Controleer je internetverbinding)</p>';
             }
         });

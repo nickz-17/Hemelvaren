@@ -70,6 +70,15 @@ body {
     margin-bottom: 20px;
 }
 
+/* Countdown Timer */
+#countdown {
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, .5); /* Bestaande styling */
+    font-size: 2em;                              /* Bestaande styling */
+    color: #ff6;                                /* Bestaande styling */
+    margin: 30px 0;                              /* Bestaande styling voor ruimte in de header */
+}
+
+
 /* Navigatie Menu */
 .main-nav {
     border-top: 1px solid rgba(255, 255, 255, 0.2);
@@ -109,14 +118,14 @@ body {
     background-color: #c06;
 }
 
-/* Weer Widget Styling (Toegevoegd voor Week 6 API integratie) */
+/* Weer Widget Styling - AANGEPAST */
 #weather-info {
-    margin-top: 20px;
-    padding: 15px;
-    background-color: rgba(0, 0, 0, 0.3);
-    border-radius: 8px;
-    text-align: center;
-    color: #eee;
+    /* margin-top: 20px; /* Niet meer nodig, de <section> geeft al margin */
+    /* padding: 15px; /* Niet meer nodig, de <section> geeft al padding */
+    /* background-color: rgba(0, 0, 0, 0.3); /* Niet meer nodig, de <section> heeft al een achtergrond */
+    /* border-radius: 8px; /* Niet meer nodig, de <section> heeft al een radius */
+    text-align: center; /* Behoud dit om de inhoud te centreren */
+    color: #eee;       /* Behoud dit voor tekstkleur */
 }
 
 .weather-widget {
@@ -156,8 +165,8 @@ body {
     background-color: rgba(255, 255, 255, .05);
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, .2);
-    padding: 30px;
-    margin-bottom: 30px;
+    padding: 30px; /* Deze padding geldt nu ook voor de weer-sectie */
+    margin-bottom: 30px; /* Deze margin geldt nu ook voor de weer-sectie */
 }
 
 .section-title {
@@ -223,10 +232,10 @@ body {
 
 /* Sfeervideo Sectie */
 #sfeer-video {
-    padding: 0;
+    padding: 0; 
 }
 #sfeer-video .section-title {
-    padding-top: 15px;
+    padding-top: 15px; 
 }
 .video-container {
     max-width: 80%;
@@ -238,26 +247,21 @@ body {
     border-radius: 8px;
 }
 
-/* Over Ons Sectie - VERNIEUWDE LAYOUT: AFBEELDING ONDER TEKST EN GECENTREERD */
+/* Over Ons Sectie */
 .over-ons-container {
-    /* display: flex; is niet meer nodig voor het stapelen, 
-       de divs zijn block-level en stapelen vanzelf. */
 }
-
 .over-ons-tekst {
-    margin-bottom: 25px; /* Ruimte tussen de tekst en de afbeelding eronder */
+    margin-bottom: 25px; 
 }
-
 .over-ons-afbeelding {
-    display: block; /* Maakt margin: auto; voor centreren mogelijk */
+    display: block; 
     margin-left: auto;
     margin-right: auto;
-    max-width: 600px;  /* Maximaal 600px breed, of pas aan naar wens (bijv. 70%) */
+    max-width: 600px;  
 }
-
 .over-ons-afbeelding img {
-    width: 100%; /* Afbeelding vult zijn container */
-    height: auto; /* Behoudt de originele beeldverhouding */
+    width: 100%; 
+    height: auto; 
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.3);
 }
@@ -332,6 +336,9 @@ body {
     .header-text {
         font-size: 1em
     }
+    #countdown { /* Zorg ervoor dat countdown ook op mobiel goed schaalt */
+        font-size: 1.5em;
+    }
     .line-up-container {
         flex-direction: column;
         gap: 20px
@@ -339,11 +346,8 @@ body {
     .section-title {
         font-size: 1.8em
     }
-    .over-ons-container {
-        /* Is nu standaard al gestapeld, dus geen flex-direction: column meer nodig hier */
-    }
     .over-ons-afbeelding {
-        max-width: 90%; /* Op kleinere schermen, eventueel iets smaller relatief gezien */
+        max-width: 90%; 
     }
     .video-container {
         max-width: 100%;

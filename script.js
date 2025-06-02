@@ -1,21 +1,21 @@
-// Wacht tot de volledige HTML-pagina geladen is
+// wacht tot de volledige html-pagina geladen is
 document.addEventListener('DOMContentLoaded', function() {
     
-    // Start de countdown timer (als je die wilt gebruiken)
-    // startCountdown(); // Haal commentaar weg als je de countdown actief wilt hebben
+    // start de countdown timer als je die wilt gebruiken
+    // startCountdown(); // haal commentaar weg als je de countdown actief wilt hebben
 
-    // Haal de weersinformatie op
+    // haal de weersinformatie op
     fetchWeatherForecast();
 
 });
 
-// --- Countdown Timer Functie ---
+// --- countdown timer functie ---
 function startCountdown() {
     const festivalDate = new Date("July 8, 2025 20:00:00").getTime();
     const countdownElement = document.getElementById("countdown");
 
     if (!countdownElement) {
-        // console.warn('Element met ID "countdown" niet gevonden. Countdown timer wordt niet gestart.');
+        // console.warn('element met id "countdown" niet gevonden countdown timer wordt niet gestart');
         return; 
     }
 
@@ -40,9 +40,9 @@ function startCountdown() {
     const countdownInterval = setInterval(updateCountdown, 1000);
 }
 
-// --- Weer API Functie (nu voor 5-daagse voorspelling) ---
+// --- weer api functie nu voor 5-daagse voorspelling ---
 function fetchWeatherForecast() {
-    const apiKey = '9b41532e75a9d1f71bfcd87717b3a4b8'; // Zorg dat dit JOUW EIGEN actieve API-sleutel is
+    const apiKey = 'c90e570c17d996f69ce185c8fd8d6b16'; // zorg dat dit jouw eigen actieve api-sleutel is
     const city = 'Groningen'; 
     const countryCode = 'NL';  
     const lang = 'nl';         
@@ -53,21 +53,21 @@ function fetchWeatherForecast() {
     const weatherDiv = document.getElementById('weather-info');
 
     if (!weatherDiv) {
-        console.warn('Element met ID "weather-info" niet gevonden. Weersinformatie wordt niet geladen.');
+        console.warn('element met id "weather-info" niet gevonden weersinformatie wordt niet geladen');
         return;
     }
 
-    // Basis check of er een API key is (geen check op specifieke voorbeeld keys meer)
+    // basis check of er een api key is
     if (apiKey.trim() === '' || apiKey === 'VERVANG_DIT_DOOR_JOUW_API_SLEUTEL') { 
-        weatherDiv.innerHTML = '<p style="color: yellow;">API-sleutel voor weer niet (correct) ingesteld in script.js!</p>';
-        console.error('OpenWeatherMap API-sleutel niet ingesteld of nog placeholder in script.js.');
+        weatherDiv.innerHTML = '<p style="color: yellow;">api-sleutel voor weer niet correct ingesteld in script js</p>';
+        console.error('openweathermap api-sleutel niet ingesteld of nog placeholder in script js');
         return;
     }
 
     fetch(forecastApiUrl)
         .then(response => {
             if (!response.ok) {
-                throw new Error(`API Fout: ${response.status} - ${response.statusText}`);
+                throw new Error(`api fout ${response.status} - ${response.statusText}`);
             }
             return response.json();
         })
@@ -103,14 +103,14 @@ function fetchWeatherForecast() {
                         `;
                     }
                 }
-                // Fallback als er minder dan 5 'middag'-voorspellingen zijn gevonden
+                // fallback als er minder dan 5 'middag'-voorspellingen zijn gevonden
                 if (processedDates.size < 5) {
                     for (let i = 0; i < data.list.length && processedDates.size < 5; i++) {
                          const entry = data.list[i];
                          const forecastDateTime = new Date(entry.dt * 1000);
                          const forecastDateStr = forecastDateTime.toLocaleDateString('nl-NL');
 
-                         if (!processedDates.has(forecastDateStr)) { // Voeg alleen toe als de dag nog niet is verwerkt
+                         if (!processedDates.has(forecastDateStr)) { // voeg alleen toe als de dag nog niet is verwerkt
                             processedDates.add(forecastDateStr);
                             const dayName = forecastDateTime.toLocaleDateString('nl-NL', { weekday: 'short' });
                             const timeStr = forecastDateTime.toLocaleTimeString('nl-NL', { hour: '2-digit', minute: '2-digit'});
@@ -135,20 +135,20 @@ function fetchWeatherForecast() {
                 if (processedDates.size > 0) {
                     weatherDiv.innerHTML = forecastOutputHtml;
                 } else {
-                    weatherDiv.innerHTML = '<p style="color: orange;">Kon geen geschikte dagelijkse voorspellingen vinden in de data.</p>';
+                    weatherDiv.innerHTML = '<p style="color: orange;">kon geen geschikte dagelijkse voorspellingen vinden in de data</p>';
                 }
 
             } else {
-                weatherDiv.innerHTML = '<p style="color: orange;">Onvoldoende voorspellingsdata ontvangen.</p>';
+                weatherDiv.innerHTML = '<p style="color: orange;">onvoldoende voorspellingsdata ontvangen</p>';
             }
         })
         .catch(error => {
-            console.error('Fout bij het ophalen van weersvoorspelling:', error);
-            weatherDiv.innerHTML = '<p style="color: red;">Kon de weersvoorspelling niet laden.</p>';
+            console.error('fout bij het ophalen van weersvoorspelling', error);
+            weatherDiv.innerHTML = '<p style="color: red;">kon de weersvoorspelling niet laden</p>';
             if (error.message.includes('401')) { 
-                 weatherDiv.innerHTML += '<p style="color: orange; font-size: 0.8em;">(Controleer API-sleutel; mogelijk ongeldig, nog niet actief, of e-mail niet bevestigd)</p>';
+                 weatherDiv.innerHTML += '<p style="color: orange; font-size: 0.8em;">(controleer api-sleutel mogelijk ongeldig nog niet actief of e-mail niet bevestigd)</p>';
             } else if (error.message.includes('Failed to fetch')) { 
-                 weatherDiv.innerHTML += '<p style="color: orange; font-size: 0.8em;">(Controleer je internetverbinding)</p>';
+                 weatherDiv.innerHTML += '<p style="color: orange; font-size: 0.8em;">(controleer je internetverbinding)</p>';
             }
         });
 }

@@ -1,8 +1,8 @@
 // wacht tot de volledige html-pagina geladen is
 document.addEventListener('DOMContentLoaded', function() {
     
-    // start de countdown timer als je die wilt gebruiken
-    // startCountdown(); // haal commentaar weg als je de countdown actief wilt hebben
+    // start de countdown timer
+    startCountdown(); // nu geactiveerd
 
     // haal de weersinformatie op
     fetchWeatherForecast();
@@ -123,32 +123,4 @@ function fetchWeatherForecast() {
                                     <p class="forecast-day-name">${dayName} ${timeStr}</p>
                                     <img src="${iconUrl}" alt="${description}" class="weather-icon forecast-icon-small">
                                     <p class="weather-temp forecast-temp-small">${Math.round(temperature)}°C</p>
-                                    <p class="weather-desc forecast-desc-small">${description}</p>
-                                </div>
-                            `;
-                         }
-                    }
-                }
-
-                forecastOutputHtml += '</div>';
-
-                if (processedDates.size > 0) {
-                    weatherDiv.innerHTML = forecastOutputHtml;
-                } else {
-                    weatherDiv.innerHTML = '<p style="color: orange;">kon geen geschikte dagelijkse voorspellingen vinden in de data</p>';
-                }
-
-            } else {
-                weatherDiv.innerHTML = '<p style="color: orange;">onvoldoende voorspellingsdata ontvangen</p>';
-            }
-        })
-        .catch(error => {
-            console.error('fout bij het ophalen van weersvoorspelling', error);
-            weatherDiv.innerHTML = '<p style="color: red;">kon de weersvoorspelling niet laden</p>';
-            if (error.message.includes('401')) { 
-                 weatherDiv.innerHTML += '<p style="color: orange; font-size: 0.8em;">(controleer api-sleutel mogelijk ongeldig nog niet actief of e-mail niet bevestigd)</p>';
-            } else if (error.message.includes('Failed to fetch')) { 
-                 weatherDiv.innerHTML += '<p style="color: orange; font-size: 0.8em;">(controleer je internetverbinding)</p>';
-            }
-        });
-}
+                                    <p class="weather-desc
